@@ -48,6 +48,9 @@ namespace ValidationDemo.ViewModels
             this.InputText2 = new ReactiveProperty<string>().SetValidateAttribute(() => this.InputText2);
             this.InputText3 = new ReactiveProperty<string>().SetValidateAttribute(() => this.InputText3);
 
+            // ウィンドウ初期表示時にバリデーションエラーを非表示する場合は下記のようにモード設定する
+            //this.InputText1 = new ReactiveProperty<string>(mode: ReactivePropertyMode.Default | ReactivePropertyMode.IgnoreInitialValidationError).SetValidateAttribute(() => this.InputText1);
+
             // バリデーションエラー表示設定
             this.ErrorText1 = this.InputText1.ObserveErrorChanged
                 .Select(x => x?.Cast<string>().FirstOrDefault())
