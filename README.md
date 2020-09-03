@@ -1,0 +1,2 @@
+# ValidationDemo
+ReactivePropertyを使用してバリデーションエラーを表示するサンプルアプリ
