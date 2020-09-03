@@ -1,0 +1,39 @@
+﻿<Window x:Class="ValidationDemo.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="{Binding Title}" Height="350" Width="525" >
+
+    <Window.Resources>
+        <Style x:Key="ValidationStyle" TargetType="Label">
+            <Setter Property="Foreground" Value="Red" />
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Content="テキスト1(文字列)" HorizontalAlignment="Left" />
+        <Label Grid.Row="0" Content="{Binding ErrorText1.Value}" Style="{StaticResource ValidationStyle}" HorizontalAlignment="Right" />
+        <TextBox Grid.Row="1" Text="{Binding InputText1.Value, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Label Grid.Row="2" Content="テキスト2(整数)" HorizontalAlignment="Left" />
+        <Label Grid.Row="2" Content="{Binding ErrorText2.Value}" Style="{StaticResource ValidationStyle}" HorizontalAlignment="Right" />
+        <TextBox Grid.Row="3" Text="{Binding InputText2.Value, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Label Grid.Row="4" Content="テキスト3(実数)" HorizontalAlignment="Left" />
+        <Label Grid.Row="4" Content="{Binding ErrorText3.Value}" Style="{StaticResource ValidationStyle}" HorizontalAlignment="Right" />
+        <TextBox Grid.Row="5" Text="{Binding InputText3.Value, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Button Grid.Row="6" Content="button" Command="{Binding ExecCommand}" />
+    </Grid>
+</Window>
