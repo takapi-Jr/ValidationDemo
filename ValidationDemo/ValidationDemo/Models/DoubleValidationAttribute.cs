@@ -7,9 +7,6 @@ namespace ValidationDemo.Models
 {
     public class DoubleValidationAttribute : ValidationAttribute
     {
-        public override bool IsValid(object value)
-        {
-            return double.TryParse(value.ToString(), out var _);
-        }
+        public override bool IsValid(object value) => double.TryParse(value.ToString(), out var _);
     }
 }
